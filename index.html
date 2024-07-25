@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+</head>
+<body class="body">
+    <header class="header">
+        <img src="img/logo-alura.png" alt="logoalura">
+    </header>
+    <section class="section-one">
+         <textarea type="text" class="textarea" name="IngresarTexto" id="ingresar" placeholder="Ingrese texto aquí"></textarea>
+            <section>
+                <div id="textoencrip" class="divimagen">
+                    <img class="imagen" src="img/Muñeco.png" alt="muñeco" id="muneco" >
+                        <h2 id="ningunTexto">Ningún mensaje fue encontrado</h2>
+                        <p id="ingreseElTexto" class="parrafo">Ingresa el téxto que deseas encriptar o desencriptar</p>
+                </div>
+                <div class="divcopiar" id="divcopiar">
+                    <button onclick="copiandoando() , alerta()" class="botoncopiar" id="copiar">Copiar</button>
+                </div>
+                
+
+            </section>
+            
+    </section>
+
+<div class="divExclamacion">
+    <img class="icon" src="img/bi_exclamation-circle-fill.png" alt="muneco" id="exclamacion"><p class="parrafo">Solo letras minusculas y sin acento</p>
+</div>
+    <div class="div-botones">
+        <button id="submitButton" onclick class="button">Encriptar</button>
+        <button onclick="" class="button-des" id="desencriptar">Desencriptar</button>
+
+
+    </div>
+    <footer class="footer">
+    </footer>
+
+</body>
+</html>
