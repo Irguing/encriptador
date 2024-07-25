@@ -98,6 +98,6 @@ function copiandoando () {
     let botoncopiar=document.getElementById("copiar")
     
     navigator.clipboard.writeText(ingreseElTexto.textContent);
-    botoncopiar.textContent='Copiado';
+    botoncopiar.textContent='¡Copiar!';
     }
    
