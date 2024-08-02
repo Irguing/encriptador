@@ -6,40 +6,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const decodeButton = document.querySelector('#desencriptar');
     const outputSection = document.querySelector('#textoencrip');
     const botoncopiar = document.querySelector('#ningunTexto');
-   
+
     // Encriptar
     function encryptSimpleSubstitution(text) {
         const substitution = {
-            a: 'm', b: 'n', c: 'b', d: 'v', e: 'c', f: 'x', g: 'z', h: 'a', i: 's', j: 'd', k: 'f', l: 'g', 
-            m: 'h', n: 'j', o: 'k', p: 'l', q: 'q', r: 'w', s: 'e', t: 'r', u: 't', v: 'y', w: 'u', x: 'i', 
-            y: 'o', z: 'p', ' ': ' '
+            'e': 'enter',
+            'i': 'imes',
+            'a': 'ai',
+            'o': 'ober',
+            'u': 'ufat'
         };
         let encryptedText = '';
         for (let i = 0; i < text.length; i++) {
             let char = text[i];
             if (substitution[char]) {
                 encryptedText += substitution[char];
+            } else {
+                encryptedText += char;
             }
-            
         }
         return encryptedText;
-        
     }
 
     // Desencriptar
     function decryptSimpleSubstitution(text) {
         const reverseSubstitution = {
-            m: 'a', n: 'b', b: 'c', v: 'd', c: 'e', x: 'f', z: 'g', a: 'h', s: 'i', d: 'j', f: 'k', g: 'l', 
-            h: 'm', j: 'n', k: 'o', l: 'p', q: 'q', w: 'r', e: 's', r: 't', t: 'u', y: 'v', u: 'w', i: 'x', 
-            o: 'y', p: 'z', ' ': ' '
+            'enter': 'e',
+            'imes': 'i',
+            'ai': 'a',
+            'ober': 'o',
+            'ufat': 'u'
         };
-        
-        let decryptedText = '';
-        for (let i = 0; i < text.length; i++) {
-            let char = text[i];
-            if (reverseSubstitution[char]) {
-                decryptedText += reverseSubstitution[char];
-            }
+        let decryptedText = text;
+        for (let [key, value] of Object.entries(reverseSubstitution)) {
+            let regex = new RegExp(key, 'g');
+            decryptedText = decryptedText.replace(regex, value);
         }
         return decryptedText;
     }
@@ -57,11 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Mostrar el boton "copiar"
         let copy = aparecer();
         botoncopiar.textContent = copy;
-        
-       
     });
-
-    
 
     // Añade un evento 'click' al botón de desencriptación
     decodeButton.addEventListener('click', () => {
@@ -76,28 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
         //Mostrar el boton copiar
         let copy = aparecer()
         botoncopiar.textContent = copy;
-
-        
-     
     });
 });
+
 //Funcion para mostrar el boton "copiar"
-function aparecer(){
-document.getElementById ("copiar").style.display ="show"
-document.getElementById ("copiar").style.display = "inherit"
-
+function aparecer() {
+    document.getElementById("copiar").style.display = "show"
+    document.getElementById("copiar").style.display = "inherit"
 }
+
 //Funcion para mostrar lightbox
-function alerta (){
-swal("Texto copiado");
-
+function alerta() {
+    swal("Texto copiado");
 }
+
 //funcion para copiar el texto encriptado o desencriptado
-function copiandoando () {
+function copiandoando() {
     let ingreseElTexto = document.getElementById("textoencrip");
-    let botoncopiar=document.getElementById("copiar")
-    
+    let botoncopiar = document.getElementById("copiar")
     navigator.clipboard.writeText(ingreseElTexto.textContent);
-    botoncopiar.textContent='¡Copiar!';
-    }
-   
+}
